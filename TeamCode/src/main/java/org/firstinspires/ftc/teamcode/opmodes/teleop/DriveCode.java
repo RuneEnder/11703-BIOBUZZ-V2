@@ -30,7 +30,7 @@ public class DriveCode extends LinearOpMode {
         while (opModeIsActive() && !isStopRequested()) {
             drive.runRobotCentricDriveCode(
                     gamepad1.left_stick_x,
-                    gamepad1.left_stick_y,
+                    -gamepad1.left_stick_y,
                     gamepad1.right_stick_x
             );
         }
