@@ -5,6 +5,8 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
+import org.firstinspires.ftc.teamcode.utils.commands.GamepadController;
+
 
 public class Drivetrain {
     private HardwareMap hardwareMap;
@@ -32,12 +34,17 @@ public class Drivetrain {
         rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
     }
 
-    public void runRobotCentricDriveCode(float left_stick_x, float left_stick_y, float right_stick_x) {
 
-        // Get user values
-        double strafe = left_stick_x;
-        double drive = left_stick_y;
-        double rotation = right_stick_x;
+    public void runDrive(GamepadController gamepadController) {
+        runRobotCentricDrive(
+                gamepadController.strafe(),
+                gamepadController.drive(),
+                gamepadController.turn()
+        );
+    }
+
+
+    public void runRobotCentricDrive(float strafe, float drive, float rotation) {
 
         // Calculate powers
         double frontLeftPower = drive - rotation - strafe;
