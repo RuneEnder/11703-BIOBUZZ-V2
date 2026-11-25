@@ -39,8 +39,7 @@ public class Robot {
     public boolean isTransferActive = false;
     public boolean isOuttakeActive = false;
 
-    public void RunMenu(GamepadController gamepadController) {
-
+    public void RunMenu() {
         if (gamepadController.setTeamToBlue()) {
             allianceColor = AllianceColor.Blue;
         } else if (gamepadController.setTeamToRed()) {
