@@ -32,18 +32,6 @@ public class Drivetrain {
         rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
     }
 
-
-    public void runDriveCode(float left_stick_x, float left_stick_y, float right_stick_x) {
-
-        runRobotCentricDriveCode(
-                left_stick_x,
-                left_stick_y,
-                right_stick_x
-        );
-
-    }
-
-
     public void runRobotCentricDriveCode(float left_stick_x, float left_stick_y, float right_stick_x) {
 
         // Get user values

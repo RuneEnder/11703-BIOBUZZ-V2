@@ -38,12 +38,12 @@ public class DriveCode extends LinearOpMode {
         //-----------------------------------------------------------------
 
         while (opModeIsActive() && !isStopRequested()) {
+            follower.update();  // must run before anything that uses the follower /fs -R
             drive.runRobotCentricDriveCode(
                     gamepad1.left_stick_x,
                     -gamepad1.left_stick_y,
                     gamepad1.right_stick_x
             );
-            follower.update();                                   // must run first, every loop
             rotatinator.rotateTurret(TARGET_X, TARGET_Y);
             telemetry.addData("Turret deg", rotatinator.getAngleDeg());
             telemetry.update();

@@ -19,14 +19,12 @@ public class Rotatinator {
     public final Servo Rotator;
     private final Follower follower;
 
-    public static final double SERVO_RANGE_DEG = 300;   // 5 turns at full PWM range
-    public static final double GEAR_RATIO = 52.0 / 40.0;   // servo turns per turret turn (40 servo, 52 turret)
-    public static final double CENTER_POSITION = 0.5;      // servo position where turret angle = 0
-    public static final boolean REVERSED = false;          // flip if the turret moves the wrong way
-
-    // Mechanical limits in turret degrees. Set these to what your turret can actually do.
-    public double minDeg = -180.0;
-    public double maxDeg = 180.0;
+    public static double SERVO_RANGE_DEG;   // 5 turns at full PWM range
+    public static double GEAR_RATIO;   // servo turns per turret turn (40 servo, 52 turret)
+    public static double CENTER_POSITION;      // servo position where turret angle = 0
+    public static boolean REVERSED;          // flip if the turret moves the wrong way
+    public static double minDeg;
+    public static double maxDeg;
 
     /**
      * @param hardwareMap the OpMode's hardwareMap
