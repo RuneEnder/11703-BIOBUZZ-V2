@@ -18,31 +18,29 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.teamcode.mechaninisms.Drivetrain;
 public class Constants {
 
-    public static MecanumConfig driveConfig = new MecanumConfig(
-            c -> {
-                c.frontLeftName.set("lf");
-                c.backLeftName.set("lr");
-                c.frontRightName.set("rf");
-                c.backRightName.set("rr");
+    public static MecanumConfig driveConfig = new MecanumConfig(c -> {
+        c.frontLeftName.set("lf");
+        c.frontRightName.set("rf");
+        c.backLeftName.set("lr");
+        c.backRightName.set("rr");
+        c.frontLeftDirection.set(DcMotorSimple.Direction.REVERSE);
+        c.frontRightDirection.set(DcMotorSimple.Direction.FORWARD);
+        c.backLeftDirection.set(DcMotorSimple.Direction.REVERSE);
+        c.backRightDirection.set(DcMotorSimple.Direction.FORWARD);
+    });
 
-                c.frontLeftDirection.set(DcMotorSimple.Direction.FORWARD);
-                c.backLeftDirection.set(DcMotorSimple.Direction.FORWARD);
-                c.frontRightDirection.set(DcMotorSimple.Direction.REVERSE);
-                c.backRightDirection.set(DcMotorSimple.Direction.REVERSE);
-            }
-    );
     public static PinpointConfig localizerConfig = new PinpointConfig(c -> {
         c.name.set("pinpoint");
-        c.podType.set(GoBildaPinpointDriver.GoBildaOdometryPods.goBILDA_4_BAR_POD);
-        c.xPodOffset.set(-5.23936354269193);
-        c.yPodOffset.set(1.903513810766025);
+        c.podType.set(GoBildaPinpointDriver.GoBildaOdometryPods.goBILDA_SWINGARM_POD);
+        c.xPodOffset.set(-0.355987548828125);
+        c.yPodOffset.set(-8.154393594096026);
         c.xPodDirection.set(GoBildaPinpointDriver.EncoderDirection.REVERSED);
-        c.yPodDirection.set(GoBildaPinpointDriver.EncoderDirection.FORWARD);
+        c.yPodDirection.set(GoBildaPinpointDriver.EncoderDirection.REVERSED);
         c.globalDistanceUnit.set(DistanceUnit.INCH);
         c.offsetUnits.set(DistanceUnit.INCH);
     });
 
-    public static ForesightConfig foresightConfig = new ForesightConfig(
+    public static ForesightConfig foresightConfig = new ForesightConfig( //THIS ONE NEEDS TO BE REDONE BEFORE LM2 (or ealier)
             c -> {
                 Controller primaryTranslationalForward = Controller.proportional(0.3);
                 Controller secondaryTranslationalForward = Controller.proportional(0.1);
